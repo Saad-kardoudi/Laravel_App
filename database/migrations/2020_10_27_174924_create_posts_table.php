@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSlugAndActive extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class AddSlugAndActive extends Migration
      */
     public function up()
     {
-        Schema::table('post', function (Blueprint $table) {
-            //
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title',120);
+            $table->text('content');
+            $table->string('slug',140);
+            $table->boolean('active');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ class AddSlugAndActive extends Migration
      */
     public function down()
     {
-        Schema::table('post', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('posts');
     }
 }

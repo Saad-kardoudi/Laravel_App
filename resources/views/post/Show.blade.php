@@ -1,5 +1,6 @@
 @extends('layout')
 @section('Content')
-    <h1>{{ $data['titel'] }}</h1>
-    <p>{{ $auther }}</p>
+<h2>{{ $post->title }}</h2>
+<p>{{ $post->content }}</p>
+<em>{{ $post->created_at }}</em>
 @endsection
